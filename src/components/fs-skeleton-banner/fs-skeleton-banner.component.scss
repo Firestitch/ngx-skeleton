@@ -1,0 +1,24 @@
+.fs-skeleton-banner {
+  display: flex;
+}
+
+.fs-skeleton-avatar {
+  margin-right: 10px;
+}
+
+.skeleton-line1 {
+  width: 180px;
+  margin-bottom: 10px;
+}
+
+.skeleton-line2 {
+  width: 120px;
+  margin-bottom: 0px;
+}
+
+.skeleton-lines {
+  align-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

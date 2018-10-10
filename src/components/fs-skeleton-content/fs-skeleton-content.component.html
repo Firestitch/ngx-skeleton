@@ -1,0 +1,13 @@
+<ng-content *ngIf="loaded; else elseSkeleton"></ng-content>
+
+<ng-template #elseSkeleton>
+  <div class="fs-skeleton-line skeleton-line1"></div>
+
+  <div class="fs-skeleton-line skeleton-line2"></div>
+
+  <div class="fs-skeleton-line skeleton-line3"></div>
+
+  <div class="fs-skeleton-line skeleton-line4"></div>
+
+  <div class="fs-skeleton-line skeleton-line5"></div>
+</ng-template>
