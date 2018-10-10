@@ -8,9 +8,7 @@ import { Component } from '@angular/core';
 export class BannerComponent {
   public loaded = false;
 
-  constructor() {
-    setTimeout(() => {
-      this.loaded = true;
-    }, 4000);
+  public toggle() {
+    this.loaded = !this.loaded;
   }
 }

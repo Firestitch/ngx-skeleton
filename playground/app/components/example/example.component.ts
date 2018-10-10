@@ -8,9 +8,7 @@ export class ExampleComponent {
 
   public loaded = false;
 
-  constructor() {
-    setTimeout(() => {
-      this.loaded = true;
-    }, 4000);
+  public toggle() {
+    this.loaded = !this.loaded;
   }
 }

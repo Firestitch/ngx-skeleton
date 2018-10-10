@@ -1,6 +1,6 @@
 
 
-<div fsSkeletonForm [loaded]="loaded">
+<div [fsSkeletonForm]="loaded">
   <div>
     <mat-form-field>
       <input matInput placeholder="Input">
@@ -18,5 +18,6 @@
   </div>
 </div>
 
+<button mat-raised-button color="primary" (click)="toggle()">Toggle</button>
 
 

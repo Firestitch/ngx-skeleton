@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FsSkeletonComponent } from '../fs-skeleton';
 
 @Component({
@@ -7,6 +7,8 @@ import { FsSkeletonComponent } from '../fs-skeleton';
   styleUrls: [ 'fs-skeleton-form.component.scss' ]
 })
 export class FsSkeletonFormComponent extends FsSkeletonComponent {
+
+  @Input('fsSkeletonForm') loaded = false;
 
   constructor() {
     super();
