@@ -1,0 +1,50 @@
+.fs-skeleton-line,
+.fs-skeleton-button,
+.fs-skeleton-avatar {
+    height: 6px;
+    left: 0;
+    right: 0;
+
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f9;
+    background-image: linear-gradient(to right, #f6f7f9 0%, #e9ebee 20%, #f6f7f9 40%, #f6f7f9 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px;
+
+    position: relative;
+    max-width: 100%;
+}
+
+.fs-skeleton-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.fs-skeleton-line {
+  width: 400px;
+  height: 17px;
+  margin-bottom: 17px;
+}
+
+.fs-skeleton-button {
+  width: 100px;
+  height: 35px;
+  border-radius: 3px;
+}
+
+
+
+@keyframes placeHolderShimmer{
+  0% {
+      background-position: -468px 0;
+  }
+  100% {
+      background-position: 468px 0;
+  }
+}
