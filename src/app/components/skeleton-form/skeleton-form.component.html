@@ -1,12 +1,10 @@
-<ng-content *ngIf="loaded; else elseSkeleton"></ng-content>
+<div [ngClass]="{ loaded: loaded }" class="skeleton-content">
+  <ng-content></ng-content>
+</div>
 
-<ng-template #elseSkeleton>
-
+<ng-container *ngIf="!loaded">
   <div class="fs-skeleton-line"></div>
-
   <div class="fs-skeleton-line"></div>
-
   <div class="fs-skeleton-line"></div>
-
   <div class="fs-skeleton-button"></div>
-</ng-template>
+</ng-container>
