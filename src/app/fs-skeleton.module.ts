@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FsSkeletonBannerComponent } from './components/skeleton-banner/skeleton-banner.component';
-import { FsSkeletonContentComponent } from './components/skeleton-content/skeleton-content.component';
-import { FsSkeletonFormComponent } from './components/skeleton-form/skeleton-form.component';
 import { NgForm } from '@angular/forms';
+import { FsSkeletonDirective } from './directives/skeleton.directive';
 
 
 @NgModule({
@@ -12,15 +10,10 @@ import { NgForm } from '@angular/forms';
     CommonModule,
   ],
   exports: [
-    FsSkeletonContentComponent,
-    FsSkeletonFormComponent,
-    FsSkeletonBannerComponent
+    FsSkeletonDirective
   ],
-  entryComponents: [],
   declarations: [
-    FsSkeletonContentComponent,
-    FsSkeletonFormComponent,
-    FsSkeletonBannerComponent
+    FsSkeletonDirective
   ],
   providers: [
     NgForm
