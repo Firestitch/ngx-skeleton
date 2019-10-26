@@ -6,17 +6,17 @@ import {
   ComponentFactoryResolver,
 } from '@angular/core';
 
-import { FsSkeletBaseDirective } from './skelet-base.directive';
-import { FsSkeletonFormComponent } from '../components/form/form.component';
+import { FsSkeletonBaseDirective } from './skeleton-base.directive';
+import { FsSkeletonContentComponent } from '../components/content/content.component';
 
 
 @Directive({
-  selector: '[fsSkeletForm]'
+  selector: '[fsSkeletonContent]'
 })
-export class FsSkeletFormDirective extends FsSkeletBaseDirective {
+export class FsSkeletonContentDirective extends FsSkeletonBaseDirective {
 
   @Input()
-  set fsSkeletForm(condition: any) {
+  set fsSkeletonContent(condition: any) {
     this._condition = condition;
     this._updateView();
   }
@@ -32,6 +32,6 @@ export class FsSkeletFormDirective extends FsSkeletBaseDirective {
   }
 
   protected _initComponent() {
-    this._componentFactory = this._componentFactoryResolver.resolveComponentFactory(FsSkeletonFormComponent);
+    this._componentFactory = this._componentFactoryResolver.resolveComponentFactory(FsSkeletonContentComponent);
   }
 }

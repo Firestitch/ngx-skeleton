@@ -6,17 +6,17 @@ import {
   ComponentFactoryResolver,
 } from '@angular/core';
 
-import { FsSkeletBaseDirective } from './skelet-base.directive';
+import { FsSkeletonBaseDirective } from './skeleton-base.directive';
 import { FsSkeletonBannerComponent } from '../components/banner/banner.component';
 
 
 @Directive({
-  selector: '[fsSkeletBanner]'
+  selector: '[fsSkeletonBanner]'
 })
-export class FsSkeletBannerDirective extends FsSkeletBaseDirective {
+export class FsSkeletonBannerDirective extends FsSkeletonBaseDirective {
 
   @Input()
-  set fsSkeletBanner(condition: any) {
+  set fsSkeletonBanner(condition: any) {
     this._condition = condition;
     this._updateView();
   }

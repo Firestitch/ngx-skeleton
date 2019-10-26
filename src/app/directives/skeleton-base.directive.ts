@@ -4,17 +4,25 @@ import {
   ComponentFactoryResolver,
   EmbeddedViewRef,
   ComponentRef,
+  OnDestroy,
+  ComponentFactory,
 } from '@angular/core';
+import { FsSkeletonBannerComponent } from '../components/banner/banner.component';
+import { FsSkeletonContentComponent } from '../components/content/content.component';
+import { FsSkeletonFormComponent } from '../components/form/form.component';
 
-export class FsSkeletBaseDirective {
+export class FsSkeletonBaseDirective implements OnDestroy {
 
   protected _condition = true;
 
   protected _contentTemplateRef: TemplateRef<any>|null = null;
   protected _contentViewRef: EmbeddedViewRef<any>|null = null;
 
-  protected _skeletonRef: ComponentRef<any>|null = null;
-  protected _componentFactory;
+  protected _skeletonRef: ComponentRef<
+    FsSkeletonBannerComponent | FsSkeletonContentComponent | FsSkeletonFormComponent> | null = null;
+
+  protected _componentFactory: ComponentFactory<
+    FsSkeletonBannerComponent | FsSkeletonContentComponent | FsSkeletonFormComponent> | null = null;
 
   protected _skeletonType;
 
@@ -26,10 +34,21 @@ export class FsSkeletBaseDirective {
     this._contentTemplateRef = templateRef;
   }
 
+  public ngOnDestroy(): void {
+    if (this._skeletonRef) {
+      this._skeletonRef.destroy();
+    }
+  }
+
   protected _updateView() {
     if (this._condition) {
       if (!this._contentViewRef) {
         this._viewContainer.clear();
+
+        if (this._skeletonRef) {
+          this._skeletonRef.destroy();
+        }
+
         this._skeletonRef = null;
 
         if (this._contentTemplateRef) {
@@ -47,7 +66,6 @@ export class FsSkeletBaseDirective {
 
 
         this._skeletonRef = this._viewContainer.createComponent(this._componentFactory);
-
       }
     }
   }

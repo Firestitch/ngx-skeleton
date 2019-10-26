@@ -6,9 +6,9 @@ import { FsSkeletonBannerComponent } from './components/banner/banner.component'
 import { FsSkeletonFormComponent } from './components/form/form.component';
 import { FsSkeletonContentComponent } from './components/content/content.component';
 
-import { FsSkeletContentDirective } from './directives/skelet-content.directive';
-import { FsSkeletFormDirective } from './directives/skelet-form.directive';
-import { FsSkeletBannerDirective } from './directives/skelet-banner.directive';
+import { FsSkeletonContentDirective } from './directives/skeleton-content.directive';
+import { FsSkeletonFormDirective } from './directives/skeleton-form.directive';
+import { FsSkeletonBannerDirective } from './directives/skeleton-banner.directive';
 
 
 @NgModule({
@@ -16,18 +16,18 @@ import { FsSkeletBannerDirective } from './directives/skelet-banner.directive';
     CommonModule,
   ],
   exports: [
-    FsSkeletContentDirective,
-    FsSkeletFormDirective,
-    FsSkeletBannerDirective,
+    FsSkeletonContentDirective,
+    FsSkeletonFormDirective,
+    FsSkeletonBannerDirective,
   ],
   declarations: [
     FsSkeletonBannerComponent,
     FsSkeletonFormComponent,
     FsSkeletonContentComponent,
 
-    FsSkeletContentDirective,
-    FsSkeletFormDirective,
-    FsSkeletBannerDirective,
+    FsSkeletonContentDirective,
+    FsSkeletonFormDirective,
+    FsSkeletonBannerDirective,
   ],
   entryComponents: [
     FsSkeletonBannerComponent,
