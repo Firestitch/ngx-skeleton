@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgForm } from '@angular/forms';
 
 import { FsSkeletonBannerComponent } from './components/banner/banner.component';
 import { FsSkeletonFormComponent } from './components/form/form.component';
@@ -33,9 +32,6 @@ import { FsSkeletonBannerDirective } from './directives/skeleton-banner.directiv
     FsSkeletonBannerComponent,
     FsSkeletonFormComponent,
     FsSkeletonContentComponent,
-  ],
-  providers: [
-    NgForm
   ]
 })
 export class FsSkeletonModule {

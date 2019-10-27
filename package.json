@@ -2,7 +2,7 @@
   "name": "@firestitch/skeleton",
   "title": "Skeleton",
   "description": "@firestitch/skeleton",
-  "version": "8.0.0",
+  "version": "8.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-skeleton"
