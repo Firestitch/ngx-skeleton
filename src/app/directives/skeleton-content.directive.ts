@@ -11,12 +11,12 @@ import { FsSkeletonContentComponent } from '../components/content/content.compon
 
 
 @Directive({
-  selector: '[fsSkeletonContent]'
+  selector: '[fsSkeleton]'
 })
 export class FsSkeletonContentDirective extends FsSkeletonBaseDirective {
 
   @Input()
-  set fsSkeletonContent(condition: any) {
+  set fsSkeleton(condition: any) {
     this._condition = condition;
     this._updateView();
   }
