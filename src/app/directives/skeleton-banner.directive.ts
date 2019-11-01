@@ -17,11 +17,14 @@ export class FsSkeletonBannerDirective extends FsSkeletonBaseDirective {
 
   @Input()
   set fsSkeletonBanner(condition: any) {
-    this._condition = condition;
+    this._context.$implicit = this._context.fsSkeletonBanner = condition;
     this._updateView();
   }
 
-  protected _skeletonType = 'content';
+  protected _context: { $implicit: any, fsSkeletonBanner: any } = {
+    $implicit: null,
+    fsSkeletonBanner: null,
+  };
 
   constructor(
     protected _viewContainer: ViewContainerRef,

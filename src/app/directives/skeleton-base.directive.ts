@@ -11,9 +11,10 @@ import { FsSkeletonBannerComponent } from '../components/banner/banner.component
 import { FsSkeletonContentComponent } from '../components/content/content.component';
 import { FsSkeletonFormComponent } from '../components/form/form.component';
 
+
 export class FsSkeletonBaseDirective implements OnDestroy {
 
-  protected _condition = true;
+  protected _context: { $implicit: any };
 
   protected _contentTemplateRef: TemplateRef<any>|null = null;
   protected _contentViewRef: EmbeddedViewRef<any>|null = null;
@@ -23,8 +24,6 @@ export class FsSkeletonBaseDirective implements OnDestroy {
 
   protected _componentFactory: ComponentFactory<
     FsSkeletonBannerComponent | FsSkeletonContentComponent | FsSkeletonFormComponent> | null = null;
-
-  protected _skeletonType;
 
   constructor(
     protected _viewContainer: ViewContainerRef,
@@ -41,7 +40,7 @@ export class FsSkeletonBaseDirective implements OnDestroy {
   }
 
   protected _updateView() {
-    if (this._condition) {
+    if (this._context.$implicit) {
       if (!this._contentViewRef) {
         this._viewContainer.clear();
 
@@ -52,7 +51,7 @@ export class FsSkeletonBaseDirective implements OnDestroy {
         this._skeletonRef = null;
 
         if (this._contentTemplateRef) {
-          this._contentViewRef = this._viewContainer.createEmbeddedView(this._contentTemplateRef);
+          this._contentViewRef = this._viewContainer.createEmbeddedView(this._contentTemplateRef, this._context);
         }
       }
     } else {
