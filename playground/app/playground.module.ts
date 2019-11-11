@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { BannerComponent, ExampleComponent, ExamplesComponent, FormComponent } from './components';
+import { CustomWidthComponent } from './components/custom-width';
 
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
     ExamplesComponent,
     ExampleComponent,
     FormComponent,
-    BannerComponent
+    BannerComponent,
+    CustomWidthComponent,
   ],
   providers: [],
 })

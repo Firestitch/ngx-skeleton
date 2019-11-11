@@ -4,6 +4,8 @@ import {
   TemplateRef,
   Input,
   ComponentFactoryResolver,
+  SimpleChanges,
+  OnChanges,
 } from '@angular/core';
 
 import { FsSkeletonBaseDirective } from './skeleton-base.directive';
@@ -13,13 +15,15 @@ import { FsSkeletonContentComponent } from '../components/content/content.compon
 @Directive({
   selector: '[fsSkeleton]'
 })
-export class FsSkeletonContentDirective extends FsSkeletonBaseDirective {
+export class FsSkeletonContentDirective extends FsSkeletonBaseDirective implements OnChanges {
 
   @Input()
   set fsSkeleton(condition: any) {
     this._context.$implicit = this._context.fsSkeleton = condition;
-    this._updateView();
   }
+
+  @Input('fsSkeletonPattern')
+  protected _pattern = [100, 90, 80, 100];
 
   protected _context: { $implicit: any, fsSkeleton: any } = {
     $implicit: null,
@@ -32,6 +36,12 @@ export class FsSkeletonContentDirective extends FsSkeletonBaseDirective {
     templateRef: TemplateRef<any>,
   ) {
     super(_viewContainer, _componentFactoryResolver, templateRef);
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes.fsSkeleton) {
+      this._updateView();
+    }
   }
 
   protected _initComponent() {

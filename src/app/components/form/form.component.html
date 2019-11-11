@@ -1,6 +1,6 @@
-<div class="fs-skelton-form">
-  <div class="fs-skeleton-line"></div>
-  <div class="fs-skeleton-line"></div>
-  <div class="fs-skeleton-line"></div>
+<div class="fs-skeleton-container fs-skelton-form">
+  <ng-container *ngFor="let lineWidth of config.pattern">
+    <div class="fs-skeleton-line" [ngStyle]="{ 'width.%': lineWidth }"></div>
+  </ng-container>
   <div class="fs-skeleton-button"></div>
 </div>

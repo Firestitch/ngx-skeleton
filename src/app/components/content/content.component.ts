@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'fs-skeleton-content',
   templateUrl: './content.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FsSkeletonContentComponent {}
+export class FsSkeletonContentComponent {
+  constructor(
+    @Inject('skeletonConfig') public config
+  ) {}
+}

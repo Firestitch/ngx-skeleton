@@ -6,6 +6,7 @@ import {
   ComponentRef,
   OnDestroy,
   ComponentFactory,
+  Injector,
 } from '@angular/core';
 import { FsSkeletonBannerComponent } from '../components/banner/banner.component';
 import { FsSkeletonContentComponent } from '../components/content/content.component';
@@ -14,6 +15,7 @@ import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 export class FsSkeletonBaseDirective implements OnDestroy {
 
+  protected _pattern = [];
   protected _context: { $implicit: any };
 
   protected _contentTemplateRef: TemplateRef<any>|null = null;
@@ -63,8 +65,18 @@ export class FsSkeletonBaseDirective implements OnDestroy {
           this._initComponent();
         }
 
+        const injector = Injector.create({
+          providers: [
+            {
+              provide: 'skeletonConfig',
+              useValue: {
+                pattern: this._pattern,
+              }
+            }
+          ]
+        });
 
-        this._skeletonRef = this._viewContainer.createComponent(this._componentFactory);
+        this._skeletonRef = this._viewContainer.createComponent(this._componentFactory, void 0, injector);
       }
     }
   }
