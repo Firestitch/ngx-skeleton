@@ -42,6 +42,12 @@
   border-radius: 3px;
 }
 
+.fs-skeleton-placeholder {
+  height: 17px;
+  background: #e6e6e6;
+  border-radius: 2px;
+  max-width: 550px;
+}
 
 
 @keyframes placeHolderShimmer{
