@@ -7,12 +7,14 @@ import {
   OnDestroy,
   ComponentFactory,
   Injector,
+  Directive,
 } from '@angular/core';
 import { FsSkeletonBannerComponent } from '../components/banner/banner.component';
 import { FsSkeletonContentComponent } from '../components/content/content.component';
 import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 
+@Directive()
 export class FsSkeletonBaseDirective implements OnDestroy {
 
   protected _pattern = [];

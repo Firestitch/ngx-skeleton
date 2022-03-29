@@ -28,11 +28,6 @@ import { FsSkeletonBannerDirective } from './directives/skeleton-banner.directiv
     FsSkeletonFormDirective,
     FsSkeletonBannerDirective,
   ],
-  entryComponents: [
-    FsSkeletonBannerComponent,
-    FsSkeletonFormComponent,
-    FsSkeletonContentComponent,
-  ]
 })
 export class FsSkeletonModule {
 
