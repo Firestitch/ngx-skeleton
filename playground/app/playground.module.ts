@@ -27,7 +27,7 @@ const routes: Routes = [
         BrowserAnimationsModule,
         AppMaterialModule,
         FormsModule,
-        RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+        RouterModule.forRoot(routes, {}),
         FsExampleModule.forRoot(),
         ToastrModule.forRoot({ preventDuplicates: true }),
         FsMessageModule.forRoot(),
