@@ -3,7 +3,7 @@
  */
 
 // Modules
-export { FsSkeletonModule } from './app/fs-skeleton.module';
+
 
 
 export { FsSkeletonContentDirective } from './app/directives/skeleton-content.directive';

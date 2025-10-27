@@ -13,7 +13,8 @@ import { FsSkeletonContentComponent } from '../components/content/content.compon
 
 
 @Directive({
-  selector: '[fsSkeleton]'
+    selector: '[fsSkeleton]',
+    standalone: true
 })
 export class FsSkeletonContentDirective extends FsSkeletonBaseDirective implements OnChanges {
 

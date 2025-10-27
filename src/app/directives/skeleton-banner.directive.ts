@@ -13,7 +13,8 @@ import { FsSkeletonBannerComponent } from '../components/banner/banner.component
 
 
 @Directive({
-  selector: '[fsSkeletonBanner]'
+    selector: '[fsSkeletonBanner]',
+    standalone: true
 })
 export class FsSkeletonBannerDirective extends FsSkeletonBaseDirective implements OnChanges {
 

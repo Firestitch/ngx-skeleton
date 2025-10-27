@@ -13,7 +13,8 @@ import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 
 @Directive({
-  selector: '[fsSkeletonForm]'
+    selector: '[fsSkeletonForm]',
+    standalone: true
 })
 export class FsSkeletonFormDirective extends FsSkeletonBaseDirective implements OnChanges {
 
