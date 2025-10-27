@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NgStyle } from '@angular/common';
 
 @Component({
@@ -9,7 +9,5 @@ import { NgStyle } from '@angular/common';
     imports: [NgStyle],
 })
 export class FsSkeletonFormComponent {
-  constructor(
-    @Inject('skeletonConfig') public config
-  ) {}
+  config = inject<any>('skeletonConfig' as any);
 }

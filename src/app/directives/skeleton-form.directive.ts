@@ -1,25 +1,18 @@
-import {
-  Directive,
-  ViewContainerRef,
-  TemplateRef,
-  Input,
-  ComponentFactoryResolver,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 import { FsSkeletonBaseDirective } from './skeleton-base.directive';
-import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 
 @Directive({
-    selector: '[fsSkeletonForm]',
-    standalone: true
+  selector: '[fsSkeletonForm]',
+  standalone: true,
 })
 export class FsSkeletonFormDirective extends FsSkeletonBaseDirective implements OnChanges {
 
   @Input()
-  set fsSkeletonForm(condition: any) {
+  public set fsSkeletonForm(condition: any) {
     this._context.$implicit = this._context.fsSkeletonForm = condition;
   }
 
@@ -30,14 +23,6 @@ export class FsSkeletonFormDirective extends FsSkeletonBaseDirective implements 
     $implicit: null,
     fsSkeletonForm: null,
   };
-
-  constructor(
-    protected _viewContainer: ViewContainerRef,
-    protected _componentFactoryResolver: ComponentFactoryResolver,
-    templateRef: TemplateRef<any>,
-  ) {
-    super(_viewContainer, _componentFactoryResolver, templateRef);
-  }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.fsSkeletonForm) {

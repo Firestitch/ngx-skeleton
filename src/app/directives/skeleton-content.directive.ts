@@ -1,25 +1,19 @@
-import {
-  Directive,
-  ViewContainerRef,
-  TemplateRef,
-  Input,
-  ComponentFactoryResolver,
-  SimpleChanges,
-  OnChanges,
-} from '@angular/core';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+import { FsSkeletonContentComponent } from '../components/content/content.component';
 
 import { FsSkeletonBaseDirective } from './skeleton-base.directive';
-import { FsSkeletonContentComponent } from '../components/content/content.component';
 
 
 @Directive({
-    selector: '[fsSkeleton]',
-    standalone: true
+  selector: '[fsSkeleton]',
+  standalone: true,
 })
 export class FsSkeletonContentDirective extends FsSkeletonBaseDirective implements OnChanges {
 
+
   @Input()
-  set fsSkeleton(condition: any) {
+  public set fsSkeleton(condition: any) {
     this._context.$implicit = this._context.fsSkeleton = condition;
   }
 
@@ -30,14 +24,6 @@ export class FsSkeletonContentDirective extends FsSkeletonBaseDirective implemen
     $implicit: null,
     fsSkeleton: null,
   };
-
-  constructor(
-    protected _viewContainer: ViewContainerRef,
-    protected _componentFactoryResolver: ComponentFactoryResolver,
-    templateRef: TemplateRef<any>,
-  ) {
-    super(_viewContainer, _componentFactoryResolver, templateRef);
-  }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.fsSkeleton) {

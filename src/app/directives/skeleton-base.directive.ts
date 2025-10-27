@@ -1,14 +1,4 @@
-import {
-  ViewContainerRef,
-  TemplateRef,
-  ComponentFactoryResolver,
-  EmbeddedViewRef,
-  ComponentRef,
-  OnDestroy,
-  ComponentFactory,
-  Injector,
-  Directive,
-} from '@angular/core';
+import { ViewContainerRef, TemplateRef, ComponentFactoryResolver, EmbeddedViewRef, ComponentRef, OnDestroy, ComponentFactory, Injector, Directive, inject } from '@angular/core';
 import { FsSkeletonBannerComponent } from '../components/banner/banner.component';
 import { FsSkeletonContentComponent } from '../components/content/content.component';
 import { FsSkeletonFormComponent } from '../components/form/form.component';
@@ -16,6 +6,9 @@ import { FsSkeletonFormComponent } from '../components/form/form.component';
 
 @Directive()
 export class FsSkeletonBaseDirective implements OnDestroy {
+  protected _viewContainer = inject(ViewContainerRef);
+  protected _componentFactoryResolver = inject(ComponentFactoryResolver);
+
 
   protected _pattern = [];
   protected _context: { $implicit: any };
@@ -29,11 +22,9 @@ export class FsSkeletonBaseDirective implements OnDestroy {
   protected _componentFactory: ComponentFactory<
     FsSkeletonBannerComponent | FsSkeletonContentComponent | FsSkeletonFormComponent> | null = null;
 
-  constructor(
-    protected _viewContainer: ViewContainerRef,
-    protected _componentFactoryResolver: ComponentFactoryResolver,
-    templateRef: TemplateRef<any>,
-  ) {
+  constructor() {
+    const templateRef = inject<TemplateRef<any>>(TemplateRef);
+
     this._contentTemplateRef = templateRef;
   }
 
