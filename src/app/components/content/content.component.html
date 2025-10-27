@@ -1,5 +1,5 @@
 <div class="fs-skeleton-container fs-skeleton-content">
-  <ng-container *ngFor="let lineWidth of config.pattern">
+  @for (lineWidth of config.pattern; track lineWidth) {
     <div class="fs-skeleton-line" [ngStyle]="{ 'width.%': lineWidth }"></div>
-  </ng-container>
+  }
 </div>
